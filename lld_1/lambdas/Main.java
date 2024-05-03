@@ -1,11 +1,15 @@
 package org.example.lld_1.lambdas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,5 +44,12 @@ public class Main {
 
         TestInterface<String> testInterface = (str) -> System.out.println(str);
         testInterface.fun1("Scaler");
+
+        int[] arr=new int[]{1,2,3,4,5,6};
+
+        List<Integer> narr= Arrays.stream(arr).filter((n)-> n%2==0).boxed().toList();
+        System.out.println(narr);
     }
 }
+
+
